@@ -1,0 +1,1371 @@
+@import "_fonts.sass"
+@import "_styles.sass"
+
+// normallise----------------------------------------------------------
+*
+    margin: 0px
+    padding: 0px
+    font-family: SegoeBold
+    color: $textColor
+body
+    overflow-x: hidden
+a
+    text-decoration: none
+    color: $textColor
+img
+    width: 100%
+    height: auto
+.wrapper
+    background: url('../img/background.svg') repeat top center
+    background-size: 100%
+    position: relative
+    max-width: 1920px
+    margin: 0px auto
+.inner
+    margin: 0px 150px
+// modal-----------------
+.modal 
+    @include alignCenter()
+    position: fixed
+    z-index: 1500
+    left: 0px
+    top: 0px
+    width: 100vw
+    height: 100vh
+    background-color: $shadow
+    overflow-y: srcoll
+    &__win
+        position: relative
+        @include alignCenter()
+        align-items: start
+        width: 90%
+        height: 80%
+        padding: 50px 10px
+        border-bottom: 1px solid $activColor
+        border-right: 1px solid $activColor
+        border-top: 1px solid $elemColor
+        border-left: 1px solid $elemColor
+        border-radius: 25px
+        background: rgb(255, 255, 255)
+    &__inner
+        display: flex
+        justify-content: center
+        width: 100%
+        height: 100%
+        box-sizing: border-box
+        overflow-y: auto
+    &__img
+        align-self: flex-start
+        width: 85%
+    &__title
+        margin: 10px
+        font-size: 24px
+        color: $activColor
+    &__text
+        margin: 5px 0px
+        font-size: 14px
+        align-self: start
+        text-align: justify
+    &__cloth-icon
+        @include alignCenter()
+        position: absolute
+        top: 5px
+        right: 10px
+        z-index: 1500
+        width: 30px
+        height: 30px
+        font-size: 20px
+        padding: 2px
+        border-radius: 50%
+        color: rgb(255, 255, 255)
+        background: $activColor
+        transition: background 0.4s ease
+    &__cloth-icon:hover
+        background: $elemColor
+        cursor: pointer
+.sending-win
+    position: relative
+    @include alignCenter()
+    &__sending
+        @include alignCenter()
+        width: 120px
+        height: 120px
+// ----------------------
+// navbar---------------
+.navbar
+    position: fixed
+    z-index: 500
+    left: 50%
+    transform: translate(-50%, 0%)
+    width: min(1920px, 100vw)
+    background-color: rgb(255, 255, 255)
+    &__container
+        @include alignCenter()
+        justify-content: space-between
+        margin: 0px 80px
+        height: 100%
+    &__logo
+        @include alignColumn()
+        margin-top: 10px
+        &_icon
+            width: 50px
+        &_text
+            @include alignCenter()
+            width: 230px
+.inline-logo
+    flex-direction: row
+.menubar
+    @include alignCenter()
+    &__list
+        @include alignCenter()
+        width: 100%
+        list-style: none
+    &__item
+        margin-left: 20px
+    &__lang
+        margin-left: 50px
+    &__burger
+        @include alignCenter()
+        font-size: 20px
+        margin-left: 20px
+    &__link
+        position: relative
+        font-size: 20px
+        transition: color 0.4s ease
+    &__link:hover
+        color: $activColor
+        cursor: pointer
+    &__link:hover:after, 
+    &__link:focus:after, 
+    &__link:active:after 
+        width: 25px
+    &__link:after 
+        content: ""
+        position: absolute
+        bottom: 0
+        left: 0px
+        width: 0%
+        height: 2px
+        border-radius: 2px
+        background: $activColor
+        transition: 0.4s
+.menubar-active
+    color: $activColor
+.menubar-active:after 
+    content: ""
+    position: absolute
+    bottom: 0
+    left: 0px
+    width: 25px
+    height: 2px
+    border-radius: 2px
+    background: $activColor
+    transition: 0.4s
+.select-lang
+    position: relative
+    &__option 
+        display: flex
+        cursor: pointer
+        font-size: 20px
+    &__option:hover
+        color: $activColor
+        cursor: pointer
+    &__option:hover:after, 
+    &__option:focus:after, 
+    &__option:active:after 
+        width: 25px
+    &__option:after 
+        content: ""
+        position: absolute
+        bottom: 0
+        left: 0px
+        width: 0%
+        height: 2px
+        border-radius: 2px
+        background: $activColor
+        transition: 0.4s 
+    &__thumb
+        width: 17px
+        margin-left: 3px
+    &__list
+        position: absolute
+        display: none
+        width: 100%
+    &__item
+        cursor: pointer
+    &__link
+        position: relative
+        font-size: 20px
+        transition: color 0.4s ease
+    &__link:hover
+        color: $activColor
+        cursor: pointer
+    &__link:hover:after, 
+    &__link:focus:after, 
+    &__link:active:after 
+        width: 25px
+    &__link:after 
+        content: ""
+        position: absolute
+        bottom: 0
+        left: 0px
+        width: 0%
+        height: 2px
+        border-radius: 2px
+        background: $activColor
+        transition: 0.4s 
+.lang-list-open
+    display: block
+.hidden-lan
+    display: none
+// burger-----------------
+.burger 
+    display: none
+    position: relative
+    z-index: 1000
+    height: 30px
+    width: 30px
+    border-radius: 50%
+    cursor: pointer
+    transition: opacity 0.2s ease
+.burger .top 
+    width: 30px
+.burger .middle
+    width: 30px
+.burger .bottom 
+    width: 30px
+.burger.burger-active .top 
+    width: 20px
+    transform: translateY(4px) translateX(-3px) rotate(-25deg)
+    background: $activColor
+    border-radius: 2px
+.burger.burger-active .middle
+    width: 30px
+    background: $activColor
+    border-radius: 4px 0px 4px 0px
+.burger.burger-active .bottom 
+    width: 20px
+    transform: translateY(-4px) translateX(-3px) rotate(25deg)
+    background: $activColor
+    border-radius: 2px
+.burger span 
+    background: $activColor
+    border: none
+    border-radius: 4px 0px 4px 0px
+    height: 3px
+    position: absolute
+    left: 1px
+    z-index: 1000
+    transition: all 0.4s ease
+    cursor: pointer
+.burger:hover > span
+    background: $elemColor
+.burger.burger-active:hover > span
+    background: $elemColor
+.burger span:nth-of-type(1) 
+    top: 6px
+.burger span:nth-of-type(2) 
+    top: 14px
+.burger span:nth-of-type(3) 
+    top: 22px
+.overlay 
+    @include alignColumn()
+    position: fixed
+    background-color: rgb(255, 255, 255)
+    top: 0
+    left: 0
+    z-index: 400
+    height: 0%
+    width: 100%
+    visibility: hidden
+    transition: 1.2s cubic-bezier(0.26,0.89,0.77,0.54)
+    overflow: hidden
+    &__container
+        @include alignCenter()
+        font-size: 16px
+        text-transform: uppercase
+    &__item
+        @include alignCenter()
+        height: 300px
+.overlay-menu
+    list-style: none
+    text-align: left
+    margin-left: 20px
+    &__item 
+        opacity: 0
+    &__link
+        position: relative
+        font-size: 18px
+        transition: color 0.4s ease
+    &__link:hover
+        color: $activColor
+        cursor: pointer
+    &__link:hover:after, 
+    &__link:focus:after, 
+    &__link:active:after 
+        width: 25px
+    &__link:after 
+        content: ""
+        position: absolute
+        bottom: 0
+        left: 0px
+        width: 0%
+        height: 2px
+        border-radius: 2px
+        background: $activColor
+        transition: 0.4s
+.overlay-socials
+    @include alignColumn()
+    width: 40px
+    list-style: none
+    &__item
+        margin: 2px
+        opacity: 0
+    &__icon
+        width: 30px
+        height: 30px
+        border-radius: 50%
+        box-sizing: border-box
+        transition: 0.2s ease
+        margin: 2px
+    &__icon:hover
+        width: 34px
+        height: 34px
+        margin: 0px
+        background: $elemColor
+        box-shadow: 1px 2px 4px 2px $shadow
+.overlay.overlay-open 
+    visibility: visible
+    height: 100%
+.overlay.overlay-open li
+    -webkit-animation: fadeInFromBottom 0.6s ease forwards
+            animation: fadeInFromBottom 0.6s ease forwards
+    -webkit-animation-delay: 0.8s
+            animation-delay: 0.8s
+.overlay.overlay-open li:nth-of-type(2) 
+    -webkit-animation-delay: 1s
+            animation-delay: 1s
+.overlay.overlay-open li:nth-of-type(3) 
+    -webkit-animation-delay: 1.2s
+            animation-delay: 1.2s
+.overlay.overlay-open li:nth-of-type(4) 
+    -webkit-animation-delay: 1.4s
+            animation-delay: 1.4s
+.overlay.overlay-open li:nth-of-type(5) 
+    -webkit-animation-delay: 1.6s
+            animation-delay: 1.6s
+.overlay.overlay-open li:nth-of-type(6) 
+    -webkit-animation-delay: 1.8s
+            animation-delay: 1.8s
+.overlay.overlay-open li:nth-of-type(7) 
+    -webkit-animation-delay: 2s
+            animation-delay: 2s
+@-webkit-keyframes fadeInFromBottom 
+    0% 
+        opacity: 0
+        top: 20%
+    100% 
+        opacity: 1
+        top: 0
+@keyframes fadeInFromBottom 
+    0% 
+        opacity: 0
+        top: 20%
+    100% 
+        opacity: 1
+        top: 0
+// -----------------------
+// ------------------------------------------------------------------------
+// header------------------------------------------------------------------
+.header
+    height: 100vh
+    &__container
+        @include alignCenter()
+        justify-content: start
+        height: 100vh
+    &__item
+        @include alignColumn()
+        width: 50%
+        margin-top: 100px 
+.header-title
+    &__subtitle
+        font-size: 30px
+    &__headline
+        font-size: 45px
+    &__headline span
+        color: $activColor
+    &__text
+        font-family: SegoeRegular
+        font-size: 20px
+.header-foto
+    @include alignCenter()
+    max-width: 40%
+    margin-top: 100px 
+    margin-left: 10%
+.header-socials
+    @include alignCenter()
+    margin-top: 50px
+    align-self: end
+    &__list
+        @include alignCenter()
+        list-style: none
+        padding: 0px
+    &__item
+        margin: 2px
+    &__icon
+        width: 35px
+        height: 35px
+        border-radius: 50%
+        box-sizing: border-box
+        transition: 0.2s ease
+        margin: 5px
+    &__icon:hover
+        width: 45px
+        height: 45px
+        margin: 0px
+        box-shadow: 1px 2px 4px 2px $shadow
+        background: $elemColor 
+.small-foto
+    display: none
+// header------------------------------------------------------------------
+// skills------------------------------------------------------------------
+.skills
+    margin-top: 130px
+    &__container
+        @include alignCenter()
+    &__item
+        @include alignColumn()
+        flex: 0 1 50%
+        margin: 0px 50px
+    &__other
+        display: flex
+        justify-content: center
+        width: 100%
+        margin-top: 125px
+.skill
+    position: relative
+    @include alignColumn()
+    width: 100%
+    margin-bottom: 20px
+    border-radius: 25px
+    box-shadow: 0px 0px 20px 8px $shadow
+    background-color: rgb(255, 255, 255)
+    &__title
+        @include alignCenter()
+        margin-top: 40px
+        font-size: 30px
+        color: $activColor
+    &__thumb
+        position: absolute
+        left: 0px
+        top: 0px
+        width: 40px
+        margin: 15px
+    &__content
+        width: 100%
+        padding: 0px 60px 50px 60px
+        box-sizing: border-box
+.skill-card
+    @include alignColumn()
+    align-items: start
+    &__title
+        @include alignCenter()
+        justify-content: space-between
+        width: 100%
+        margin-top: 10px
+    &__subtitle
+        font-size: 16px
+        color: $activColor
+    &__text
+        font-size: 16px
+    &__desc
+        font-size: 18px   
+    &__item
+        width: 100%
+        height: 12px
+        box-sizing: border-box
+        border: 1px solid  rgba(66, 189, 129, 1)
+        border-radius: 10px
+        padding: 2px
+    &__progress
+        height: 6px
+        border-radius: 4px
+        background-color: $elemColor
+.m-office,
+.budgeting
+    width: 90%
+.o-office,
+.a-forecasting,
+.preparation-of-plans,
+.work-in-industries
+    width: 80%
+.s-planning,
+.a-calculations,
+.work-with-slot
+    width: 70%
+.communication,
+.targeted,
+.f-adaptive,
+.multitasking,
+.teamwork,
+.work-on-resul
+    width: 100%
+.skill-other
+    display: flex
+    flex-direction: column
+    flex: 0 1 50%
+    margin: 0px 50px
+    border-radius: 25px
+    background-color: rgb(255, 255, 255)
+    box-shadow: 0px 0px 20px 8px $shadow
+    &__caption
+        @include alignCenter()
+        margin-top: 15px
+    &__title
+        font-size: 30px
+        color: $activColor
+    &__thumb
+        width: 50px
+        margin-left: 10px
+    &__content
+        @include alignCenter()
+        justify-content: space-evenly
+        height: 100%
+        margin: 0px 20px 20px 20px
+    &__list
+        @include alignColumn()
+        align-items: start
+        margin: 5px
+        list-style: none    
+// skills------------------------------------------------------------------
+// experiences-------------------------------------------------------------
+.experiences
+    margin-top: 180px
+    &__container
+        @include alignColumn()
+        margin: 0px -20px
+    &__item
+        @include alignColumn()
+        margin: 0px 40px
+    &__certificates
+        display: flex
+        justify-content: space-evenly
+        width: 100%
+        margin-top: 150px
+        border-radius: 25px
+        box-shadow: 0px 0px 20px 8px $shadow
+        background-color: rgb(255, 255, 255)
+.experience-marker
+    display: flex
+    flex-direction: column
+    align-items: center
+    &__round
+        @include alignCenter()
+        border: 1px dashed rgb(0, 0, 0)
+        border-radius: 50%
+    &__point
+        width: 20px
+        height: 20px
+        margin: 7px
+        border-radius: 50%
+        background-color: $activColor
+    &__line
+        width: 0px
+        height: 100%
+        border-left: 1px dashed rgb(0, 0, 0)
+.experience
+    width: 100%
+    &__content
+        display: flex
+        box-sizing: border-box
+.experience-caption
+    display: flex
+    flex-direction: column
+    flex: 0 1 50%
+    &__title
+        position: relative
+        font-size: 24px
+        color: $activColor
+    &__title::before
+        content: ''
+        background: url('../img/left-leaf.svg') no-repeat center center
+        background-size: cover
+        position: absolute
+        width: 22px
+        height: 20px
+        left: -15px
+        top: -5px
+        margin-bottom: 10px
+        display: inline-flex
+    &__text
+        font-size: 18px
+.experience-desc
+    display: flex
+    flex-direction: column
+    flex: 0 1 50%
+    margin-left: 70px
+    margin-bottom: 40px
+    &__title
+        position: relative
+        font-size: 24px
+        color: $activColor
+    &__list
+        padding-left: 25px
+    &__item
+        font-size: 18px  
+.small-experience
+    display: none
+.certificate-album
+    @include alignCenter()
+    flex: 0 1 30%
+    width: 100%
+    padding: 30px
+    &__content
+        @include alignCenter()
+        border: 1px solid rgb(243, 243, 243)
+.certificate-book
+    @include alignCenter()
+    flex: 0 1 15%
+    width: 100%
+    padding: 30px
+    &__content
+        @include alignCenter()
+        border: 1px solid rgb(243, 243, 243)
+// experiences------------------------------------------------------------
+// portfolio--------------------------------------------------------------
+.portfolio 
+    margin-top: 220px
+    &__container
+        @include alignColumn()
+        margin: -20px
+    &__item
+        display: flex
+        justify-content: center
+        width: 100% 
+    &__title
+        margin-bottom: 20px
+        font-size: 40px
+        color: $activColor
+.project
+    position: relative
+    display: flex
+    flex: 0 1 50%
+    margin: 30px 20px
+    align-items: start
+    border-radius: 20px
+    box-shadow: 4px 4px 4px 0px $shadow
+    background-color: rgb(255, 255, 255)
+    &__item
+        @include alignColumn()
+        flex: 0 1 50%
+        min-height: 240px
+    &__icon
+        @include alignCenter()
+        flex: 0 1 50%
+        min-height: 240px
+        width: 100%
+        border-radius: 20px 0px 0px 20px
+    &__desc
+        display: flex
+        flex-direction: column
+        height: 100%
+        margin: 40px 20px
+        &_text
+            margin-top: 10px
+            font-size: 12px
+        &_title
+            text-align: left
+            font-size: 24px
+            line-height: 110%
+            color: $activColor
+    &__thumb
+        position: absolute
+        right: 0px
+        top: 0px
+        width: 32px
+        margin: 5px
+    &__btn
+        @include alignCenter()
+        position: absolute
+        left: 50%
+        bottom: 0px
+        transform: translate(-50%, 50%)
+        width: 80px
+        height: 80px
+        box-sizing: border-box
+        padding: 20px
+        font-size: 16px
+        line-height: 120%
+        color: rgb(255, 255, 255)
+        border: none
+        border-radius: 50%
+        background: $activColor
+        cursor: pointer
+        transition: background 0.5s ease
+    &__btn:hover
+        box-shadow: 1px 2px 4px 2px $shadow
+        background: $elemColor
+.project-info
+    display: none
+.project-1
+    background: url('../img/projects/project-1/studProf-photo.jpg') no-repeat center center
+    background-size: contain
+.project-2
+    background: url('../img/projects/project-2/re-energize-photo.jpg') no-repeat center center
+    background-size: contain
+.project-3
+    background: url('../img/projects/project-3/re-energize-photo.jpg') no-repeat center center
+    background-size: contain
+.project-4
+    background: url('../img/projects/project-4/influencers-photo.jpg') no-repeat center center
+    background-size: contain
+.project-5
+    background: url('../img/projects/project-5/influencers-photo.jpg') no-repeat center center
+    background-size: contain
+// portfolio--------------------------------------------------------------
+// reviews----------------------------------------------------------------
+.reviews
+    margin-top: 100px
+    &__container
+        @include alignColumn()
+        width: 100%
+    &__item
+        display: flex
+        flex-direction: column
+        width: 80%
+        margin: 0px auto
+    &__title
+        font-size: 40px
+        margin: 0px auto
+        color: $activColor
+.reviews-data
+    display: none
+.slider
+    margin-top: 50px
+    &__controls
+        @include alignCenter()
+    &__container
+        display: flex
+        justify-content: center
+        width: 100%
+        margin-top: 120px
+.slider-controls
+    display: none
+    &__btn
+        display: flex
+        align-items: center
+        width: 20px
+        height: 20px
+        margin: 30px
+        padding: 4px
+        background: #ffffff00
+        border: none
+        cursor: pointer
+    &__btn:hover
+        width: 24px
+        margin: 0px 28px
+    &__indicators
+        @include alignCenter()
+    &__indicator
+        width: 8px
+        height: 8px
+        margin: 8px
+        border-radius: 50%
+        background: rgb(0, 0, 0)
+    &__indicator.active
+        width: 16px
+        height: 16px
+        margin: 4px
+        background: $activColor
+.slide
+    position: relative
+    display: flex
+    flex-direction: column
+    &__content
+        position: absolute
+        z-index: 100
+        display: flex
+        flex-direction: column
+        align-items: center
+        height: 100%
+        margin: 0px 8%
+    &__avatar
+        @include alignCenter()
+        width: 150px
+        margin-top: -75px
+        border-radius: 50%
+        box-shadow: 1px 2px 2px 0px $shadow
+    &__thumb
+        @include alignCenter()
+        width: 20px
+        margin: 6px
+    &__name
+        font-size: 24px
+    &__profession
+        font-family: SegoeRegular
+        font-size: 18px
+    &__text
+        margin-top: 10px
+        font-family: SegoeRegular
+        font-size: 18px
+        line-height: 110%
+.slide-bg-750px,
+.slide-bg-600px,
+.slide-bg-500px,
+.slide-bg-400px
+    display: none
+// reviews----------------------------------------------------------------
+// contacts---------------------------------------------------------------
+.contacts
+    margin-top: 200px
+    &__container
+        @include alignCenter()
+        justify-content: space-between
+    &__item
+        @include alignCenter()
+        flex: 0 1 45%
+        width: 100%
+    &__title
+        margin: 10px
+        font-size: 32px
+        color: $textColor
+.contacts-message
+    @include alignColumn()
+    width: 100%
+    &__caption
+        @include alignColumn()
+    &__title
+        font-size: 40px
+        color: $activColor
+    &__text
+        text-align: center
+        font-size: 18px
+    &__content
+        width: 100%
+.contacts-form
+        @include alignColumn()
+        width: 100%
+        &__container
+            @include alignCenter()
+            justify-content: space-between
+            width: 100%
+        &__item
+            @include alignColumn()
+            align-items: start
+            flex: 0 1 50%
+            margin: 15px
+        &__message
+            @include alignCenter()
+            justify-content: stretch
+            width: 100%
+            &_item
+                @include alignColumn()
+                align-items: start
+                flex: 0 1 100%
+                margin: 0px 15px
+        &__title
+            font-size: 20px
+        &__name,
+        &__email
+            @include alignCenter()
+            height: 50px
+            width: 100%
+            padding-left: 10px
+            font-size: 16px
+            border: 2px solid $activColor
+            border-radius: 30px
+            box-shadow: 4px 4px 7px 0px $shadow
+            outline: none
+        &__text
+            height: 145px
+            width: 100%
+            padding-left: 10px
+            font-size: 16px
+            border: 2px solid $activColor
+            border-radius: 30px
+            box-shadow: 4px 4px 7px 0px $shadow
+            outline: none
+            resize: none
+            overflow-y: auto
+        &__file
+            @include alignCenter()
+            justify-content: start
+            position: relative
+            width: 100%
+            margin-top: 15px
+            margin-left: 15px
+            &_input
+                position: absolute
+                top: 0px
+                left: 0px
+                width: 100%
+                height: 100%
+                opacity: 0
+                font-size: 0px
+            &_btn
+                display: inline-flex
+                align-items: center
+                padding: 5px
+                font-size: 18px
+                cursor: pointer
+                transition: color 0.4s ease
+            &_input:hover
+                cursor: pointer
+            &_preview
+                margin-left: 20px
+                font-size: 18px
+                color: $elemColor
+        &__file:hover>label
+            color: $activColor
+        &__btn
+            margin-top: 15px
+            padding: 10px 40px
+            font-size: 18px
+            color: rgb(255, 255, 255)
+            border: none
+            border-radius: 30px
+            background-color: $activColor
+            transition: background-color 0.4s ease
+        &__btn:hover
+            cursor: pointer
+            box-shadow: 1px 2px 4px 2px $shadow
+            background-color: $elemColor
+.contacts-info  
+    padding: 75px 25px
+    border-radius: 40px
+    background-color: rgb(255, 255, 255)
+    &__caption
+        @include alignCenter()
+        justify-content: start
+        margin: 0px 20px
+    &__title
+        &_name
+            font-size: 30px
+            line-height: 140%
+            color: $activColor
+        &_position
+            font-size: 20px
+            line-height: 120%
+    &__thumb
+        width: 75px
+        margin-left: 40px
+    &__list
+        @include alignColumn()
+        align-items: start
+        margin-top: 60px
+    &__item
+        @include alignCenter()
+        justify-content: start
+        margin-top: 10px
+        &_title
+            width: 120px
+            font-size: 20px
+            color: $activColor
+        &_desc
+            font-size: 18px
+.error
+    box-shadow: 4px 4px 7px 0px $elemColor
+// contacts----------------------------------------------------------------
+// footer------------------------------------------------------------------
+.footer
+    margin-top: 150px
+    @include alignCenter()
+    width: 100%
+    height: 100px
+    background-color: $activColor
+    &__container
+        @include alignCenter()
+        justify-content: space-between
+        width: 100%
+        margin: 0px 50px
+    &__item
+        @include alignColumn()
+    &__text
+        font-size: 18px
+        color: rgb(255, 255, 255)
+.footer-socials
+    align-self: end
+    @include alignCenter()
+    &__list
+        @include alignCenter()
+        list-style: none
+        padding: 0px
+    &__item
+        margin: 2px
+    &__icon
+        width: 35px
+        height: 35px
+        border-radius: 50%
+        box-sizing: border-box
+        transition: 0.2s ease
+        margin: 5px
+    &__icon:hover
+        width: 45px
+        height: 45px
+        margin: 0px
+        box-shadow: 1px 2px 4px 2px rgb(16, 99, 101)
+        background: $elemColor
+.copyright
+    font-family: sans-serif
+    font-size: 18px
+    color: rgb(255, 255, 255)
+// footer------------------------------------------------------------------
+
+@media (max-width: 1500px) 
+    .inner
+        margin: 0px 120px
+    .navbar__logo_icon
+        width: 40px
+    .navbar__logo_text
+        width: 200px
+    .header__item
+        margin-top: 80px
+        width: 70%
+    .header-foto
+        margin-top: 80px
+        margin-left: 7%
+    .header-socials
+        margin-top: 30px
+    .skills
+        &__item
+            margin: 0px 30px
+    .skill-other
+        margin: 0px 30px
+    .skill
+        &__content
+            padding: 0px 40px 40px 40px
+    .experience-desc
+        margin-left: 50px
+        margin-bottom: 30px
+    .portfolio
+        margin-top: 150px
+    .contacts
+        margin-top: 150px
+    
+@media (max-width: 1400px) 
+    .inner
+        margin: 0px 90px
+    .skills
+        &__item
+            margin: 0px 20px
+    .skill-other
+        margin: 0px 20px
+    .experience-caption
+        flex: 0 1 40%
+    .experience-desc
+        flex: 0 1 60%
+    .contacts__item 
+        flex: 0 1 50%
+    .contacts-info
+        padding: 45px 20px
+    .contacts-info__item_title
+        width: 100px
+
+@media (max-width: 1300px) 
+    .inner
+        margin: 0px 80px
+    .menubar__link,
+    .select-lang__option,
+    .select-lang__link
+        font-size: 16px
+    .select-lang__thumb
+        width: 14px
+    .header-title__subtitle
+        font-size: 24px
+    .header-title__headline,
+    .header-title__headline span
+        font-size: 36px
+    .header-title__text
+        font-size: 16px
+    .skill__title,
+    .skill-other__title 
+        font-size: 24px
+    .skill__thumb
+        width: 30px
+    .skill-other__thumb
+        width: 35px
+    .experience-caption__title,
+    .experience-desc__title
+        font-size: 18px
+    .experience-caption__text,
+    .experience-desc__item
+        font-size: 16px
+    .portfolio__title
+        font-size: 32px
+    .project__desc_title
+        font-size: 18px
+    .project__thumb
+        width: 28px
+    .reviews__title
+        font-size: 32px
+    .slide__name 
+        font-size: 18px
+    .slide__profession
+        font-size: 16px
+    .slide__text
+        font-size: 14px
+    .contacts-message__title
+        font-size: 32px
+    .contacts-message__text
+        font-size: 16px
+    .contacts-form__title,
+    .contacts-form__file_btn
+        font-size: 18px
+    .contacts-info__thumb
+        width: 45px
+    .contacts-info__title_name
+        font-size: 24px
+    .contacts-info__title_position 
+        font-size: 18px
+    .contacts-info__item_title
+        font-size: 18px
+    .contacts-info__item_desc
+        font-size: 16px
+    .contacts-info__list
+        margin-top: 40px
+
+@media (max-width: 1200px) 
+    .menubar__item
+        margin-left: 15px
+    .menubar__lang
+        margin-left: 30px
+    .skills__item,
+    .skill-other
+        margin: 0px 15px
+    .skill__content 
+        padding: 0px 30px 40px 30px
+    .skill__title
+        margin-top: 30px
+    .project
+        margin: 30px 10px
+    .slider
+        margin-top: 20px
+    .slider__container
+        margin-top: 100px
+
+@media (max-width: 1130px) 
+    .portfolio__item
+        flex-direction: column
+        width: 60%
+    .portfolio__title
+        margin: 0px auto
+    .contacts-form
+        margin-top: 15px
+        &__container
+            flex-direction: column
+        &__item
+            width: 95%
+            margin: 0px
+
+@media (max-width: 1100px) 
+    .inner
+        margin: 0px 50px
+    .navbar__container
+        margin: 0px 50px
+    .skills__other
+        margin-top: 100px
+    .experiences
+        margin-top: 130px
+    .experiences__certificates
+        margin-top: 100px
+    .portfolio__item
+        width: 70%
+
+@media (max-width: 1050px) 
+    .inner
+        margin: 0px 40px
+    .navbar__container
+        margin: 0px 40px
+    .reviews__item 
+        width: 90%
+    .contacts
+        margin-top: 120px
+
+@media (max-width: 1000px) 
+    .burger 
+        display: block
+    .menubar__item
+        display: none
+    .skills__other
+        flex-direction: column
+        margin-top: 80px
+    .skill-other
+        width: 70%
+        margin: 20px auto
+    .contacts__container
+        flex-direction: column
+    .contacts__item 
+        width: 80%
+    .contacts-info
+        margin-top: 80px
+
+@media (max-width: 900px)
+    .header
+        height: 100%
+    .header__container
+        flex-direction: column
+        height: 100%
+    .header__item
+        margin-top: 20px
+        width: 90%
+    .header-socials
+        margin-top: 20px
+    .header-foto
+        display: none
+        margin-left: 0px
+        margin-top: 120px
+    .small-foto
+        display: flex 
+    .skills__container
+        flex-direction: column
+    .skills__item
+        width: 80%
+    .skill-other
+        width: 80%
+        margin: 20px auto
+    .experience-caption
+        display: none
+    .small-experience
+        display: flex
+    .experience-desc
+        flex: 0 1 100%
+        &__title
+            margin-top: 20px
+    .experiences__item
+        width: 75%
+        margin: 0px
+    .portfolio__item
+        width: 80%
+    .slide__avatar
+        width: 100px
+        margin-top: -50px
+    .contacts__item 
+        width: 90%
+
+@media (max-width: 750px)
+    .header-foto
+        max-width: 60%
+    .header__item
+        width: 100%
+    .skills__item,
+    .skill-other,
+    .portfolio__item,
+    .contacts__item 
+        width: 100%
+    .experiences__item
+        width: 90%
+    .experience-desc
+        margin-left: 30px
+        margin-bottom: 30px
+    .experiences__certificates
+        flex-direction: column
+    .experiences__certificates
+        padding: 20px 0px
+    .certificate-album,
+    .certificate-book
+        width: auto
+        padding: 10px 20px
+    .slide__bg
+        display: none
+    .slide-bg-750px
+        display: block
+    .slide__content
+        margin: 0px 9%
+    .footer
+        height: 100%
+        padding: 20px 0px
+    .footer__container
+        flex-direction: column
+    .footer__item 
+        margin: 5px
+
+@media (max-width: 650px)
+    .header-foto
+        max-width: 65%
+
+@media (max-width: 600px)
+    .slide-bg-750px
+        display: none
+    .slide-bg-600px
+        display: block
+
+@media (max-width: 500px)
+    .inner
+        margin: 0px 20px
+    .navbar__container
+        margin: 0px 20px
+    .header-socials
+        &__icon
+            width: 28px
+            height: 28px
+            margin: 2px
+        &__icon:hover
+            width: 32px
+            height: 32px
+            margin: 0px
+    .skill-card__text
+        font-size: 14px
+    .skill-card__desc
+        font-size: 16px
+    .project
+        flex-direction: column
+        &__item
+            min-height: auto
+        &__desc
+            margin-top: 25px
+            margin-bottom: 45px
+    .slide-bg-600px
+        display: none
+    .slide-bg-500px
+        display: block
+    .slider-controls
+        &__btn
+            margin: 15px
+        &__btn:hover
+            width: 24px
+            margin: 0px 13px
+        &__indicator
+            margin: 6px
+    .contacts-form__title, 
+    .contacts-form__file_btn
+        font-size: 16px
+    .contacts-info__item
+        flex-direction: column
+        align-items: start
+        &_title
+            font-size: 16px
+        &_desc
+            font-size: 14px
+    .footer__text
+        text-align: center
+    .footer-socials
+        &__icon
+            width: 28px
+            height: 28px
+            margin: 2px
+        &__icon:hover
+            width: 32px
+            height: 32px
+            margin: 0px
+
+@media (max-width: 450px)
+    .header-title__headline
+        line-height: 100%
+    .header-title__text
+        margin-top: 20px
+    .skill__content
+        padding: 0px 20px 40px 20px
+
+@media (max-width: 400px)
+    .navbar__logo_icon
+        width: 30px
+    .navbar__logo_text
+        width: 150px
+    .slide-bg-500px
+        display: none
+    .slide-bg-400px
+        display: block
+
+@media (max-width: 350px)
+    .header-foto
+        max-width: 70%
