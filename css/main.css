@@ -2526,12 +2526,6 @@ img {
     height: 32px;
     margin: 0px;
   }
-  .skill-card__text {
-    font-size: 14px;
-  }
-  .skill-card__desc {
-    font-size: 16px;
-  }
   .project {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -2573,12 +2567,6 @@ img {
     -webkit-box-align: start;
         -ms-flex-align: start;
             align-items: start;
-  }
-  .contacts-info__item_title {
-    font-size: 16px;
-  }
-  .contacts-info__item_desc {
-    font-size: 14px;
   }
   .footer__text {
     text-align: center;
