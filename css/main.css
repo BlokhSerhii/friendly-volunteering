@@ -488,6 +488,9 @@ img {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
   position: fixed;
   background-color: rgb(255, 255, 255);
   top: 0;
@@ -510,6 +513,7 @@ img {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  margin-top: 100px;
   font-size: 16px;
   text-transform: uppercase;
 }
@@ -603,6 +607,7 @@ img {
 .overlay.overlay-open {
   visibility: visible;
   height: 100%;
+  overflow-y: auto;
 }
 
 .overlay.overlay-open li {
@@ -2526,6 +2531,16 @@ img {
     height: 32px;
     margin: 0px;
   }
+  .skill-card__text,
+  .skill-other__item,
+  .hobby__card_item,
+  .experience-desc__item {
+    font-size: 14px;
+  }
+  .skill-card__desc,
+  .experience-desc__title {
+    font-size: 16px;
+  }
   .project {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -2567,6 +2582,12 @@ img {
     -webkit-box-align: start;
         -ms-flex-align: start;
             align-items: start;
+  }
+  .contacts-info__item_title {
+    font-size: 16px;
+  }
+  .contacts-info__item_desc {
+    font-size: 14px;
   }
   .footer__text {
     text-align: center;
