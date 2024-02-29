@@ -316,29 +316,9 @@ img
         border-radius: 2px
         background: $activColor
         transition: 0.4s
-.overlay-socials
-    @include alignColumn()
-    width: 40px
-    list-style: none
-    &__item
-        margin: 2px
-        opacity: 0
-    &__icon
-        width: 30px
-        height: 30px
-        border-radius: 50%
-        box-sizing: border-box
-        transition: 0.2s ease
-        margin: 2px
-    &__icon:hover
-        width: 34px
-        height: 34px
-        margin: 0px
-        background: $elemColor
-        box-shadow: 1px 2px 4px 2px $shadow
 .overlay.overlay-open 
     visibility: visible
-    height: 100%
+    height: auto
     overflow-y: auto
 .overlay.overlay-open li
     -webkit-animation: fadeInFromBottom 0.6s ease forwards
@@ -1370,6 +1350,8 @@ img
         width: 30px
     .navbar__logo_text
         width: 150px
+    .overlay__container
+        margin-top: 70px
     .slide-bg-500px
         display: none
     .slide-bg-400px
