@@ -10,9 +10,9 @@
     $mail->setLanguage('ru', 'phpmailer/language');
     $mail->isHTML(true);
 
-    $mail->setFrom('bs-cv.website','WeBStudio');
-    $mail->addAddress('0997198431@ukr.net');
-    $mail->Subject = 'Лист з WeBStudio!';
+    $mail->setFrom('no-reply@friendlyvolunteering.com.ua','Friendly volunteering');
+    $mail->addAddress('kozlovvladyslavanalytics@gmail.com');
+    $mail->Subject = 'Friendly volunteering!';
 
     $body = '<h1>Повідомлення з сайту!</h1>';
 
